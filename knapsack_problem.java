@@ -11,15 +11,15 @@ class MochilaProblem {
 	public void knapsackSolver(double pesoMaximo) {
 		double target = pesoMaximo;
 		int i = 0;
-		
+		this.valor_mochila = 0.0;
 		while(target > 0 && i < itens.size()) {
 			Item item = itens.get(i);
 			if(item.getPeso() <= target) {
 				Fracionado fr = new Fracionado(1, item);
-				i++;
 				target -= item.getPeso();
 				mochila.add(fr);
 				valor_mochila += item.getValor();
+				i++;
 				
 			} else {
 				double peso = item.getPeso();
